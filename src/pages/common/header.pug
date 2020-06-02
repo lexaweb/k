@@ -1,0 +1,306 @@
+header.header
+  .inner
+    .top-header
+      .my-city
+        a(href="/")
+          +icon('point-map') 
+          span Москва
+        a(href="/") 49 центров: выбрать свой
+          +icon('arrow')  
+      .etc-inf
+        .dropdown
+          a(href="/") Доставка и оплата
+            +icon('arrow')
+          .dropdown-hover
+            span
+            a(href="/") Как заказать
+            a(href="/") Как оплатить
+            a(href="/") Кредит
+            a(href="/") Рассрочка
+            a(href="/") Возврат
+        .dropdown
+          .dropdown-hover.shoper
+            span
+            a(href="/") Расширенная гарантия
+            a(href="/") Дисконтная программа
+            a(href="/") Отзывы о магазинах
+            a(href="/") Отзывы о товаре
+            a(href="/") Тесты
+          a(href="/") Покупателю
+            +icon('arrow')
+        a.stock(href="/") 
+          +icon('star')
+          span Акции
+        a(href="/") Наши центры
+        a.office(href="/") 
+          span Мой кабинет
+    .top-header-mobile
+      p Ваш регион: 
+        a(href="") Санкт-Петербург
+    .center-header
+      .item
+        .logo
+          a(href="index.html")
+            +icon('logo')
+        .phone
+          a(href="tel:+78001006878") 8 (800) 100-68-78
+          a(href="tel:+74955440202") 8 (495) 544-02-02
+        .request
+          a(href="/") Заказать звонок
+      .item
+        .tire-service
+          a(href="zapis-1.html")
+            +icon('car-wheel')  
+            p Записаться 
+               span на шиномонтаж
+        .auto-repait
+          a(href="zapis-1.html")
+            +icon('customer-support')
+            p Записаться 
+               span на автосервис
+      .item 
+        .compare
+          a(href="/")
+            +icon('compare')
+        .heart
+          a(href="/")
+            +icon('heart')
+        .shopping-cart
+          a(href="/")
+            +icon('shopping-cart')
+            span 4
+      .mobile
+        form.search-mobile(action="search.php", method="post") 
+          +icon('search-mobile')
+          .search-mobile-active
+            .row-search-mobile-active-1 
+              .text Поиск
+              .icon-close-search
+                +icon('close-mobile')
+            .row-search-mobile-active-2
+              .block-input
+                input(type="text", autofocus)
+                button(type="submit")
+                  +icon('ion-search')
+        .hamburger-mobile
+          span.line
+          span.line
+          span.line
+    .bottom-header
+      .container
+        .item-bottom-header
+          a(href="index-tires.html") шины
+          .bottom-dropdown
+            .block
+              strong
+                a(href="/") Каталог шин
+              a(href="/") Подбор по авто
+              a(href="/") Подбор по параметрам
+            .block
+              a(href="/") Зимние шины
+              a(href="/") Летние шины
+              a(href="/") Комерческии шины
+              a(href="/") Грузовые шины 
+            .block
+              a(href="/") Шины с бесплатным монтажем
+              a(href="/") Распродажа
+              a(href="/") Шинный калькулятор
+            .block
+              a(href="/") 
+                span -10%
+                img(src="img/tires.jpg", alt="")
+                p Купи шины 
+                  strong Cordiant 
+                p со скидкой!
+        .item-bottom-header
+          a(href="index-tires.html") диски
+          .bottom-dropdown
+            .block
+              strong
+                a(href="/") Каталог дисков
+              a(href="/") Подбор по авто
+              a(href="/") Подбор по параметрам
+            .block
+              a(href="/") Литые диски
+              a(href="/") Штампованные диски
+              a(href="/") Грузовые диски
+              a(href="/") Распродажа
+            .block
+            .block
+              a(href="/") 
+                img(src="img/rims.jpg", alt="")
+                p Распродажа литых дисков 
+                strong RW Classic
+        .item-bottom-header
+          a(href="index-tires.html") автотовары
+          .bottom-dropdown
+            .block
+              a(href="/") Датчики давления шин
+              a(href="/") Инструмент 
+              a(href="/") Электротовары
+            .block
+              a(href="/") Щетки стеклоочистителя
+              a(href="/") Кресла детские
+              a(href="/") Секретки
+            .block
+              a(href="/") Моторные масла
+              a(href="/") Экстерьер
+              a(href="/") Интерьер
+            .block
+              a(href="/") 
+                img(src="img/products.jpg", alt="")
+                p Рассрочка на все покупки в сети 
+                strong КОЛЕСО
+        .item-bottom-header
+          a(href="index-tires.html") автосервис
+          .bottom-dropdown
+            .block
+              a(href="/") Диагностика
+              a(href="/") Регламентное ТО
+              a(href="/") Жидкости и фильтры
+              a(href="/") Двигатель, система впуска
+              a(href="/") Трансмиссия
+            .block
+              a(href="/") Электрооборудование
+              a(href="/") Кондиционер/климат
+              a(href="/") Тормозная система
+            .block
+              a(href="/") Рулевое управление
+              a(href="/") Ходовая часть
+              a(href="/") Регулеровка развала-схождения
+            .block
+              a(href="/") 
+                img(src="img/Rectangle.jpg", alt="")
+                p Все акции в одном клике! 
+        .item-bottom-header
+          a(href="index-tires.html") услуги
+          .bottom-dropdown
+            .block
+              a(href="/") Шиномонтаж
+              a(href="/") Сезонное хранение
+              a(href="/") Ремонт шин
+              a(href="/") Дошиповка
+              a(href="/") Грузовой шиномонтаж
+            .block
+              a(href="/") Покраска дисков
+              a(href="/") Ремонт и правка дисков
+            .block
+              a(href="/") Автомойка и детейлинг
+              a(href="/") ...
+            .block
+              a(href="/") 
+                img(src="img/uslugi.jpg", alt="")
+                p Бесплатная диагностика развала-схождения 
+        .search
+          input.search-h(type="text", required)
+          button(type="submit")
+            +icon('white')
+            +icon('black')
+    .hamburger-mobile-menu   
+      .hamburger-mobile-menu-block-h1
+        .text МЕНЮ
+        .icon-close
+          +icon('close-mobile')
+      .hamburger-mobile-menu-block-map
+        a(href="")
+          +icon('point-map')
+          p Москва
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Шины
+          +icon('arrow-right')
+        .block-drop
+          .row-block-drop-h1
+            .arrow-left
+              +icon('arrow-left')
+            .close
+              +icon('close-mobile')
+          .row-block-drop
+            p Шины
+          .row-block-drop
+            a(href="") Каталог шин
+          .row-block-drop
+            a(href="") Подбор по авто
+          .row-block-drop
+            a(href="") Подбор по параметрам
+          .row-block-drop
+            a(href="") Зимние шины
+          .row-block-drop
+            a(href="") Летние шины
+          .row-block-drop
+            a(href="") Коммерческие шины
+          .row-block-drop
+            a(href="") Грузовые шины
+          .row-block-drop
+            a(href="") Шины с бесплатным монтажем
+          .row-block-drop
+            a(href="") Распродажа
+          .row-block-drop
+            a(href="") Шинный калькулятор
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Диски
+          +icon('arrow-right')
+        .block-drop
+          .row-block-drop-h1
+            .arrow-left
+              +icon('arrow-left')
+            .close
+              +icon('close-mobile')
+          .row-block-drop
+            p Диски
+          .row-block-drop
+            a(href="") Каталог шин
+          .row-block-drop
+            a(href="") Подбор по авто
+          .row-block-drop
+            a(href="") Подбор по параметрам
+          .row-block-drop
+            a(href="") Зимние шины
+          .row-block-drop
+            a(href="") Летние шины
+          .row-block-drop
+            a(href="") Коммерческие шины
+          .row-block-drop
+            a(href="") Грузовые шины
+          .row-block-drop
+            a(href="") Шины с бесплатным монтажем
+          .row-block-drop
+            a(href="") Распродажа
+          .row-block-drop
+            a(href="") Шинный калькулятор
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Автотовары
+          +icon('arrow-right')
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Автосервис
+          +icon('arrow-right')
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Услуги
+          +icon('arrow-right')
+      .hamburger-mobile-menu-block-icon
+        a(href="") 
+          +icon('car-wheel')
+          | Запись на шиномонтаж
+      .hamburger-mobile-menu-block-icon
+        a(href="") 
+          +icon('customer-support')
+          | Запись на автосервис
+      .hamburger-mobile-menu-block-icon
+        a(href="") 
+          +icon('star')
+          | Акции
+      .hamburger-mobile-menu-block-icon
+        a(href="") 
+          +icon('heart')
+          | Избранное
+      .hamburger-mobile-menu-block-icon
+        a(href="") 
+          +icon('compare')
+          | Сравнение
+      .hamburger-mobile-menu-block
+        a(href="") Наши центры
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Доставка и оплата
+          +icon('arrow-right')
+      .hamburger-mobile-menu-block-dropdown
+        a(href="") Покупателю
+          +icon('arrow-right')

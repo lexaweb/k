@@ -1,0 +1,1909 @@
+@import 'common/header';
+@import 'common/global';
+@import 'common/footer';
+
+html {
+  overflow-x: hidden;
+}
+html.active {
+  overflow: hidden;
+}
+body {
+  .wrapper {
+    .inner {
+      max-width: 1140px;
+      // calculator
+      .tooltip {
+        position: relative;
+        cursor: help;
+        &::after {
+          background: #fff;
+          border-radius: 5px 5px 5px 0;
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+          color: #aaa;
+          content: attr(data-tooltip);
+          margin-top: -24px;
+          opacity: 0;
+          padding: 3px 7px;
+          position: absolute;
+          visibility: hidden;
+          transition: 0.3s;
+          top: -50%;
+          left: 115%;
+          width: 200px;
+        }
+        &:hover {
+          &::after {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+      .tabs__content {
+        display: none;
+      }
+      .tabs__content.active {
+        display: block;
+      }
+      .calculator {
+        position: relative;
+        margin: 40px 0 60px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 25px 80px 37px 80px;
+        &-mobile {
+          position: relative;
+          display: none;
+          padding: 0;
+          border-radius: 0;
+          box-shadow: none;
+          margin: 15px auto 40px;
+          .tires {
+            &::before {
+              content: '';
+              position: absolute;
+              background: url('../img/tire_car 1.png') no-repeat;
+              background-size: contain;
+              bottom: -68px;
+              right: 9px;
+              width: 301px;
+              height: 238px;
+            }
+          }
+          .wheels {
+            &::before {
+              content: '';
+              position: absolute;
+              background: url('../img/wheel.jpg') no-repeat;
+              background-size: contain;
+              bottom: 0;
+              right: 9px;
+              width: 301px;
+              height: 238px;
+            }
+          }
+          .row-product {
+            border-bottom: 1px solid #e5e5e5;
+            .block-product {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              position: relative;
+              span {
+                position: relative;
+                display: block;
+                margin-right: 25px;
+                font: 400 20px/26px $font;
+                color: #aaa;
+                padding-bottom: 6px;
+                cursor: pointer;
+                transition: 0.3s;
+                &::after {
+                  position: absolute;
+                  content: '';
+                  width: 100%;
+                  height: 3px;
+                  background-color: transparent;
+                  bottom: -1px;
+                  right: 0;
+                  opacity: 0;
+                  transition: 0.3s;
+                }
+              }
+              span.active {
+                color: #e22f22;
+                transition: 0.3s;
+                cursor: default;
+                &::after {
+                  position: absolute;
+                  content: '';
+                  width: 100%;
+                  height: 3px;
+                  background-color: #e22f22;
+                  bottom: -1px;
+                  right: 0;
+                  opacity: 1;
+                  transition: 0.3s;
+                }
+              }
+            }
+          }
+          .row-parameters {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .dash {
+              margin: 0 20px;
+              margin-bottom: 10px;
+              color: #222;
+              align-self: flex-end;
+            }
+            .block-product {
+              z-index: auto;
+              margin-right: 40px;
+              &:nth-child(1) {
+                margin-right: 0;
+              }
+              label {
+                margin: 21px 0 12px 0;
+                display: block;
+                color: #555;
+                font: 400 13px/22px $font;
+                position: relative;
+                span {
+                  display: inline-flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-left: 11px;
+                  font: 400 12px/22px $font;
+                  width: 18px;
+                  height: 18px;
+                  border: 1px solid #e5e5e5;
+                  box-sizing: border-box;
+                  border-radius: 50%;
+                  z-index: 0;
+                  &:hover {
+                    z-index: 10;
+                  }
+                }
+              }
+              .select {
+                position: relative;
+              }
+              .select.is-active .select__body {
+                display: block;
+              }
+              .select__header {
+                position: relative;
+                padding: 4px 66px 4px 10px;
+                font: 400 13px/22px $font;
+                color: #555;
+                background: #f9f9fa;
+                border: 1px solid #e5e5e5;
+                border-radius: 5px;
+                cursor: pointer;
+                .select-arrow-button {
+                  position: absolute;
+                  background: #fff;
+                  border-left: 1px solid #e5e5e5;
+                  border-radius: 0 5px 5px 0;
+                  height: 94%;
+                  width: 30px;
+                  right: 1px;
+                  top: 1px;
+                  pointer-events: none;
+                  z-index: 1;
+                  &::before {
+                    content: '';
+                    display: block;
+                    background: url('../img/arrow-form.png') no-repeat;
+                    background-size: contain;
+                    pointer-events: none;
+                    position: absolute;
+                    width: 13px;
+                    height: 8px;
+                    top: 40%;
+                    right: 8px;
+                  }
+                }
+                .select__current {
+                  cursor: pointer;
+                }
+              }
+              .select__body {
+                display: none;
+                position: absolute;
+                width: 100%;
+                color: #555;
+                font: 400 13px/22px $font;
+                background: #fff;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                transition: 0.3s;
+                z-index: 2;
+              }
+              .select__item {
+                cursor: pointer;
+                padding: 4px 10px;
+                transition: 0.3s;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                &:hover {
+                  opacity: 0.7;
+                }
+              }
+            }
+          }
+          .row-view {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .season,
+            .thorns {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              border-radius: 5px;
+              border: 1px solid #e5e5e5;
+              margin: 35px 0;
+              .block-view {
+                border-right: 1px solid #e5e5e5;
+                background: #f9f9fa;
+                cursor: pointer;
+                &:nth-child(4) {
+                  border: none;
+                  label {
+                    border-radius: 0 5px 5px 0;
+                  }
+                }
+                &:nth-child(1) {
+                  label {
+                    border-radius: 5px 0 0 5px;
+                  }
+                }
+                input[type='radio'] {
+                  display: none;
+                }
+                input {
+                  &:checked + label {
+                    background-color: #555;
+                    color: #fff;
+                  }
+                }
+                label {
+                  font: 400 13px/22px $font;
+                  color: #222;
+                  cursor: pointer;
+                  padding: 9px 20px;
+                  display: block;
+                  transition: 0.3s;
+                }
+              }
+            }
+            .thorns {
+              margin-left: 40px;
+              .block-view {
+                &:nth-child(3) {
+                  border: none;
+                  label {
+                    border-radius: 0 5px 5px 0;
+                  }
+                }
+              }
+            }
+          }
+          .row-calculator-mobile {
+            &-tires,
+            &-wheels,
+            &-by-car {
+              position: relative;
+              margin: 10px 0;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              border-radius: 10px;
+              font: 700 14px/22px $font;
+              color: #222;
+              .icon-arrow-bottom {
+                width: 12px;
+                height: 6px;
+              }
+              p {
+                &:nth-child(2) {
+                  display: inline-block;
+                }
+              }
+              .active-tires {
+                position: relative;
+                padding: 18px 20px;
+                cursor: pointer;
+                &::before {
+                  content: '';
+                  position: absolute;
+                  background: url('../img/tire_car 1.png') no-repeat;
+                  background-size: contain;
+                  top: 13px;
+                  right: 9px;
+                  width: 117px;
+                  height: 92px;
+                }
+              }
+              .active-wheels {
+                position: relative;
+                padding: 18px 20px;
+                cursor: pointer;
+                &::before {
+                  content: '';
+                  position: absolute;
+                  background: url('../img/wheel.jpg') no-repeat;
+                  background-size: contain;
+                  bottom: 0;
+                  right: 7px;
+                  width: 101px;
+                  height: 78px;
+                }
+              }
+              .active-by-car {
+                position: relative;
+                padding: 18px 20px;
+                cursor: pointer;
+                &::before {
+                  content: '';
+                  position: absolute;
+                  background: url('../img/auto.png') no-repeat;
+                  background-size: contain;
+                  bottom: -1px;
+                  right: 0;
+                  width: 105px;
+                  height: 77px;
+                  border-radius: 0 0 10px 0;
+                }
+              }
+            }
+            &-tires {
+              .tires {
+                display: none;
+                transition: 0.3s;
+                padding: 0 10px 20px;
+                .row-parameters {
+                  justify-content: space-between;
+                  border-top: 1px solid #e5e5e5;
+                  .block-product {
+                    margin-right: 0;
+                    label {
+                      margin: 12px 0;
+                    }
+                    &:nth-child(5) {
+                      width: 100%;
+                    }
+                    .select__header {
+                      padding: 4px 20px 4px 10px;
+                    }
+                  }
+                  .dash {
+                    margin: 0;
+                    margin-bottom: 10px;
+                  }
+                }
+                .row-view {
+                  justify-content: space-between;
+                  .season,
+                  .thorns {
+                    margin: 20px 0;
+                    .block-view {
+                      label {
+                        padding: 6px 8px;
+                      }
+                    }
+                  }
+                  .thorns {
+                    margin-top: 20px;
+                  }
+                }
+                .row-lifetime {
+                  justify-content: flex-start;
+                  margin-top: 20px;
+                  flex-wrap: wrap;
+                  .block-lifetime {
+                    justify-content: flex-start;
+                    margin: 0;
+                    margin-top: 15px;
+                    width: 100%;
+                  }
+                }
+                .row-select {
+                  text-align: center;
+                  button {
+                    margin-top: 20px;
+                  }
+                }
+              }
+              .active-tires.active {
+                transition: 0.3s;
+                &::before {
+                  display: none;
+                }
+                p {
+                  display: inline-block;
+                }
+                .icon-arrow-bottom {
+                  float: right;
+                  margin-top: 8px;
+                  transform: rotate(180deg);
+                }
+              }
+            }
+            &-wheels {
+              .wheels {
+                padding: 0 10px 20px;
+                transition: 0.3s;
+                display: none;
+                .row-parameters {
+                  justify-content: space-between;
+                  border-top: 1px solid #e5e5e5;
+                  .block-product {
+                    margin-right: 0;
+                    label {
+                      margin: 12px 0;
+                    }
+                    &:nth-child(5) {
+                      width: 100%;
+                    }
+                  }
+                  .dash {
+                    margin: 0;
+                    margin-bottom: 10px;
+                  }
+                }
+                .row-view {
+                  justify-content: center;
+                  margin: 20px 0;
+                  .season,
+                  .thorns {
+                    .block-view {
+                      label {
+                        padding: 6px 8px;
+                      }
+                    }
+                  }
+                  .thorns {
+                    margin-top: 20px;
+                  }
+                }
+                .row-lifetime {
+                  justify-content: flex-start;
+                  margin-top: 20px;
+                  flex-wrap: wrap;
+                  .block-lifetime {
+                    justify-content: flex-start;
+                    margin: 0;
+                    margin-top: 15px;
+                    width: 100%;
+                  }
+                }
+                .row-select {
+                  text-align: center;
+                  button {
+                    margin-top: 20px;
+                  }
+                }
+              }
+              .active-wheels.active {
+                transition: 0.3s;
+                &::before {
+                  display: none;
+                }
+                p {
+                  display: inline-block;
+                }
+                .icon-arrow-bottom {
+                  float: right;
+                  margin-top: 8px;
+                  transform: rotate(180deg);
+                }
+              }
+            }
+            &-by-car {
+              .by-car {
+                transition: 0.3s;
+                padding: 0 10px 20px;
+                display: none;
+                .row-parameters {
+                  justify-content: space-between;
+                  border-top: 1px solid #e5e5e5;
+                  .block-product {
+                    margin-right: 0;
+                    label {
+                      margin: 12px 0;
+                    }
+                    &:nth-child(5) {
+                      width: 100%;
+                    }
+                  }
+                  .dash {
+                    margin: 0;
+                    margin-bottom: 10px;
+                  }
+                }
+                .row-view {
+                  justify-content: center;
+                  margin: 20px 0;
+                  .season,
+                  .thorns {
+                    .block-view {
+                      label {
+                        padding: 6px 8px;
+                      }
+                    }
+                  }
+                  .thorns {
+                    margin-top: 20px;
+                  }
+                }
+                .row-lifetime {
+                  justify-content: flex-start;
+                  margin-top: 20px;
+                  flex-wrap: wrap;
+                  .block-lifetime {
+                    justify-content: flex-start;
+                    margin: 0;
+                    margin-top: 15px;
+                    width: 100%;
+                  }
+                }
+                .row-select {
+                  text-align: center;
+                  button {
+                    margin-top: 20px;
+                  }
+                }
+              }
+              .active-by-car.active {
+                transition: 0.3s;
+                &::before {
+                  display: none;
+                }
+                p {
+                  display: inline-block;
+                }
+                .icon-arrow-bottom {
+                  float: right;
+                  margin-top: 8px;
+                  transform: rotate(180deg);
+                }
+              }
+            }
+          }
+          .row-calculator-mobile-service {
+            margin: 10px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            .tire-service {
+              position: relative;
+              &::before {
+                content: '';
+                position: absolute;
+                background: url('../img/tire-service.png') no-repeat;
+                background-size: contain;
+                bottom: 0;
+                right: 0;
+                width: 108px;
+                height: 78px;
+                border-radius: 0 10px 10px 0;
+              }
+              a {
+                padding: 18px 20px;
+                font: 700 14px/22px $font;
+                color: #e22f22;
+              }
+            }
+          }
+        }
+        .tires {
+          &::before {
+            content: '';
+            position: absolute;
+            background: url('../img/tire_car 1.png') no-repeat;
+            background-size: contain;
+            bottom: -68px;
+            right: 9px;
+            width: 301px;
+            height: 238px;
+          }
+        }
+        .wheels {
+          &::before {
+            content: '';
+            position: absolute;
+            background: url('../img/wheel.jpg') no-repeat;
+            background-size: contain;
+            bottom: 0;
+            right: 9px;
+            width: 301px;
+            height: 238px;
+          }
+        }
+        .row-product {
+          border-bottom: 1px solid #e5e5e5;
+          .block-product {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            span {
+              position: relative;
+              display: block;
+              margin-right: 25px;
+              font: 400 20px/26px $font;
+              color: #aaa;
+              padding-bottom: 6px;
+              cursor: pointer;
+              transition: 0.3s;
+              &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 3px;
+                background-color: transparent;
+                bottom: -1px;
+                right: 0;
+                opacity: 0;
+                transition: 0.3s;
+              }
+            }
+            span.active {
+              color: #e22f22;
+              transition: 0.3s;
+              cursor: default;
+              &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 3px;
+                background-color: #e22f22;
+                bottom: -1px;
+                right: 0;
+                opacity: 1;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+        .row-parameters {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          .dash {
+            margin: 0 20px;
+            margin-bottom: 10px;
+            color: #222;
+            align-self: flex-end;
+          }
+          .block-product {
+            z-index: auto;
+            margin-right: 40px;
+            &:nth-child(1) {
+              margin-right: 0;
+            }
+            label {
+              margin: 21px 0 12px 0;
+              display: block;
+              color: #555;
+              font: 400 13px/22px $font;
+              position: relative;
+              span {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 11px;
+                font: 400 12px/22px $font;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #e5e5e5;
+                box-sizing: border-box;
+                border-radius: 50%;
+                z-index: 0;
+                &:hover {
+                  z-index: 10;
+                }
+              }
+            }
+            .select {
+              position: relative;
+            }
+            .select.is-active .select__body {
+              display: block;
+            }
+            .select__header {
+              position: relative;
+              padding: 4px 66px 4px 10px;
+              font: 400 13px/22px $font;
+              color: #555;
+              background: #f9f9fa;
+              border: 1px solid #e5e5e5;
+              border-radius: 5px;
+              cursor: pointer;
+              .select-arrow-button {
+                position: absolute;
+                background: #fff;
+                border-left: 1px solid #e5e5e5;
+                border-radius: 0 5px 5px 0;
+                height: 94%;
+                width: 30px;
+                right: 1px;
+                top: 1px;
+                pointer-events: none;
+                z-index: 1;
+                &::before {
+                  content: '';
+                  display: block;
+                  background: url('../img/arrow-form.png') no-repeat;
+                  background-size: contain;
+                  pointer-events: none;
+                  position: absolute;
+                  width: 13px;
+                  height: 8px;
+                  top: 40%;
+                  right: 8px;
+                }
+              }
+              .select__current {
+                cursor: pointer;
+              }
+            }
+            .select__body {
+              display: none;
+              position: absolute;
+              width: 100%;
+              color: #555;
+              font: 400 13px/22px $font;
+              background: #fff;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              transition: 0.3s;
+              z-index: 1;
+            }
+            .select__item {
+              cursor: pointer;
+              padding: 4px 10px;
+              transition: 0.3s;
+              overflow-wrap: break-word;
+              word-wrap: break-word;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+        .row-view {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 35px 0;
+          .season,
+          .thorns {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 5px;
+            border: 1px solid #e5e5e5;
+            .block-view {
+              border-right: 1px solid #e5e5e5;
+              background: #f9f9fa;
+              cursor: pointer;
+              &:nth-child(4) {
+                border: none;
+                label {
+                  border-radius: 0 5px 5px 0;
+                }
+              }
+              &:nth-child(1) {
+                label {
+                  border-radius: 5px 0 0 5px;
+                }
+              }
+              input[type='radio'] {
+                display: none;
+              }
+              input {
+                &:checked + label {
+                  background-color: #555;
+                  color: #fff;
+                }
+              }
+              label {
+                font: 400 13px/22px $font;
+                color: #222;
+                cursor: pointer;
+                padding: 9px 20px;
+                display: block;
+                transition: 0.3s;
+              }
+            }
+          }
+          .thorns {
+            margin-left: 40px;
+            .block-view {
+              &:nth-child(3) {
+                border: none;
+                label {
+                  border-radius: 0 5px 5px 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .row-lifetime {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 36px;
+        .block-lifetime {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 35px;
+          .check {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+            margin-right: 10px;
+            position: relative;
+            transition: 0.3s;
+            &::before {
+              content: '';
+              position: absolute;
+              background: url('../img/check.png') no-repeat;
+              background-size: contain;
+              width: 10px;
+              height: 8px;
+              opacity: 0;
+            }
+          }
+          label {
+            font: 400 13px/22px $font;
+            color: #555;
+            transition: 0.3;
+            display: inline-block;
+            cursor: pointer;
+            .question {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              width: 18px;
+              height: 18px;
+              font: 400 12px/22px $font;
+              color: #555;
+              border: 1px solid #e5e5e5;
+              border-radius: 50%;
+              margin-left: 8px;
+            }
+          }
+          input {
+            &:checked + .check {
+              background: #555;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              &::before {
+                content: '';
+                position: absolute;
+                background: url('../img/check.png') no-repeat;
+                background-size: contain;
+                width: 10px;
+                height: 8px;
+                opacity: 1;
+              }
+            }
+          }
+          input[type='checkbox'] {
+            display: none;
+          }
+        }
+      }
+      .row-select {
+        button {
+          font: 700 15px/23px $font;
+          color: #fff;
+          border: 1px solid #e22f22;
+          background: #e22f22;
+          border-radius: 5px;
+          padding: 17px 42px;
+          cursor: pointer;
+          transition: 0.3s;
+          margin-top: 36px;
+          &:hover {
+            background: #fff;
+            color: #e22f22;
+          }
+        }
+      }
+      // calculator
+      // stocks
+      .stocks {
+        margin-bottom: 60px;
+        .row-stocks-1 {
+          .block-stocks {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            p {
+              color: #222;
+              &:nth-child(1) {
+                font: 700 20px/22px $font;
+                text-transform: uppercase;
+              }
+              &:nth-child(2) {
+                position: relative;
+                &::before {
+                  content: '';
+                  border-bottom: 1px dotted #555;
+                  width: 100%;
+                  height: 1px;
+                  position: absolute;
+                  bottom: -1px;
+                }
+                a {
+                  font: 400 13px/22px $font;
+                  color: #555;
+                  &:hover {
+                    opacity: 0.7;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .row-stocks-2 {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .block-stocks-img-1 {
+            position: relative;
+            width: 490px;
+            height: 360px;
+            background: url('../img/block-stocks-img-1.png') no-repeat;
+            padding-top: 60px;
+            transition: 0.3s;
+            &:hover {
+              opacity: 0.7;
+            }
+            a {
+              position: absolute;
+              width: 100%;
+              display: block;
+              text-align: center;
+              margin-top: -60px;
+              z-index: 1;
+            }
+            .red {
+              display: inline-block;
+              font: 700 24px/23px $font;
+              color: #fff;
+              background: #e22f22;
+              padding: 13px 20px;
+            }
+            .white {
+              position: relative;
+              display: inline-block;
+              font: 700 15px/22px $font;
+              color: #222;
+              background: #fff;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+              padding: 11px 20px;
+              &::before {
+                content: '';
+                position: absolute;
+                right: -20px;
+                bottom: -20px;
+                width: 40px;
+                height: 40px;
+                background: url('../img/cursor.png') no-repeat;
+                background-size: contain;
+              }
+            }
+          }
+          .block-stocks-img-2 {
+            position: relative;
+            width: 330px;
+            height: 360px;
+            background: url('../img/block-stocks-img-2.png') no-repeat;
+            background-size: contain;
+            padding-bottom: 45px;
+            margin: 0 20px;
+            transition: 0.3s;
+            display: flex;
+            align-items: flex-end;
+            &:hover {
+              opacity: 0.7;
+            }
+            a {
+              position: absolute;
+              width: 100%;
+              display: block;
+              text-align: center;
+              margin-bottom: -45px;
+              z-index: 1;
+            }
+            .red {
+              width: 237px;
+              display: inline-block;
+              font: 700 14px/20px $font;
+              color: #fff;
+              background: #e22f22;
+              padding: 8px 16px;
+            }
+          }
+          .block-stocks-two {
+            .block-stocks-img-3 {
+              position: relative;
+              width: 280px;
+              height: 170px;
+              background: url('../img/block-stocks-img-3.png') no-repeat;
+              background-size: contain;
+              transition: 0.3s;
+              display: flex;
+              align-items: flex-end;
+              &:hover {
+                opacity: 0.7;
+              }
+              a {
+                position: absolute;
+                width: 100%;
+                display: block;
+                text-align: center;
+                z-index: 1;
+              }
+              .red {
+                width: 244px;
+                display: inline-block;
+                font: 400 13px/20px $font;
+                color: #fff;
+                background: #e22f22;
+                padding: 5px 50px 5px 21px;
+              }
+            }
+            .block-stocks-img-4 {
+              position: relative;
+              width: 280px;
+              height: 170px;
+              background: url('../img/block-stocks-img-4.png') no-repeat;
+              background-size: contain;
+              transition: 0.3s;
+              display: flex;
+              align-items: flex-end;
+              margin-top: 20px;
+              &:hover {
+                opacity: 0.7;
+              }
+              a {
+                position: absolute;
+                width: 100%;
+                display: block;
+                text-align: center;
+                z-index: 1;
+              }
+              .red {
+                width: 244px;
+                display: inline-block;
+                font: 400 13px/20px $font;
+                color: #fff;
+                background: #e22f22;
+                padding: 5px 50px 5px 21px;
+              }
+            }
+          }
+        }
+      }
+      // stocks
+      // catalog
+      .catalog {
+        margin-bottom: 60px;
+        .row-catalog {
+          &-1,
+          &-2 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            p {
+              font: 700 20px/22px $font;
+              color: #222;
+              text-transform: uppercase;
+            }
+          }
+          &-1 {
+            margin-bottom: 36px;
+          }
+        }
+        .block-catalog {
+          &-1,
+          &-2,
+          &-3,
+          &-4,
+          &-5 {
+            position: relative;
+            width: 220px;
+            height: 150px;
+            margin-right: 10px;
+            background: #e5e5e5;
+            border-radius: 5px;
+            transition: 0.3s;
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              width: 130px;
+              height: 80px;
+              background-size: contain;
+            }
+            &:hover {
+              background: #e22f22;
+              p {
+                color: #fff;
+              }
+            }
+            a {
+              position: absolute;
+              width: 100%;
+              display: block;
+              text-align: center;
+            }
+            p {
+              font: 400 18px/24px $font;
+              color: #222;
+              text-transform: uppercase;
+              margin: 25px 0 0 20px;
+            }
+          }
+          &-1 {
+            &::after {
+              background: url('../img/block-catalog-1.png') no-repeat;
+            }
+          }
+          &-2 {
+            &::after {
+              background: url('../img/block-catalog-2.png') no-repeat;
+            }
+          }
+          &-3 {
+            &::after {
+              background: url('../img/block-catalog-3.png') no-repeat;
+            }
+          }
+          &-4 {
+            &::after {
+              background: url('../img/block-catalog-4.png') no-repeat;
+            }
+          }
+          &-5 {
+            margin-right: 0;
+            &::after {
+              background: url('../img/block-catalog-5.png') no-repeat;
+            }
+          }
+        }
+      }
+      // catalog
+      // map
+      .map {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #e6e8e0;
+        margin-bottom: 60px;
+        .row-map {
+          display: none;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+          h1 {
+            font: 700 16px/22px $font;
+            color: #222;
+          }
+          .click {
+            position: relative;
+            font: 400 13px/22px $font;
+            color: #555;
+            cursor: pointer;
+            &::before {
+              content: '';
+              position: absolute;
+              border-top: 1px dotted #555;
+              width: 100%;
+              height: 2px;
+              bottom: 0;
+              left: 0;
+            }
+          }
+        }
+        .list {
+          padding: 25px 17px 30px 30px;
+          height: 380px;
+          h1 {
+            font: 400 20px/23px $font;
+            color: #000;
+            margin-bottom: 25px;
+          }
+          .scroll-pane {
+            width: 300px;
+            height: 200px;
+            overflow: auto;
+          }
+          .jspContainer {
+            overflow: hidden;
+            position: relative;
+          }
+          .jspPane {
+            position: absolute;
+          }
+          .jspVerticalBar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            .jspTrack {
+              .jspDrag {
+                float: left;
+                height: 100%;
+              }
+            }
+          }
+          .jspHorizontalBar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 1px;
+            height: 16px;
+            background: red;
+          }
+          .jspCap {
+            display: none;
+          }
+          .jspHorizontalBar .jspCap {
+            float: left;
+          }
+          .jspTrack {
+            background: #e5e5e5;
+            position: relative;
+            width: 1px;
+          }
+          .jspDrag {
+            background: #e22f22;
+            position: relative;
+            top: 0;
+            left: -2.5px;
+            height: 20% !important;
+            width: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .jspArrow {
+            background: #50506d;
+            text-indent: -20000px;
+            display: block;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+          }
+          .jspArrow.jspDisabled {
+            cursor: default;
+            background: #80808d;
+          }
+          .jspVerticalBar .jspArrow {
+            height: 16px;
+          }
+          .jspHorizontalBar .jspArrow {
+            width: 10px;
+            float: left;
+            height: 100%;
+          }
+          .jspVerticalBar .jspArrow:focus {
+            outline: none;
+          }
+          .jspCorner {
+            background: #eeeef4;
+            float: left;
+            height: 100%;
+          }
+          .list-link-map {
+            overflow-y: auto;
+            height: 290px;
+            padding-right: 30px;
+            // &::-webkit-scrollbar-button {
+            //   background-image: url('');
+            //   background-repeat: no-repeat;
+            //   width: 5px;
+            //   height: 0;
+            // }
+            // &::-webkit-scrollbar-track {
+            //   background: #e5e5e5;
+            //   border-radius: 5px;
+            // }
+            // &::-webkit-scrollbar-thumb {
+            //   border-radius: 5px;
+            //   background-color: #e22f22;
+            // }
+            // &::-webkit-resizer {
+            //   background-image: url('');
+            //   background-repeat: no-repeat;
+            //   width: 4px;
+            //   height: 0;
+            // }
+            // &::-webkit-scrollbar {
+            //   width: 5px;
+            // }
+            .link-map {
+              font: 400 13px/22px $font;
+              color: #555;
+              margin-bottom: 15px;
+              height: auto;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+        .map-widget {
+          width: 70%;
+          iframe {
+            width: 100%;
+            height: 380px;
+            border: none;
+          }
+        }
+      }
+      // map
+      // product-list
+      .product-list {
+        margin-bottom: 60px;
+        overflow-y: hidden;
+        h1 {
+          font: 700 20px/22px $font;
+          color: #222;
+          text-transform: uppercase;
+        }
+        .row-product-list {
+          &-1 {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            justify-content: space-between;
+            .block-product-list {
+              opacity: 1;
+              span {
+                font: 400 16px/22px $font;
+                color: #aaa;
+                margin-right: 20px;
+                transition: 0.3s;
+                cursor: pointer;
+              }
+              span.active {
+                color: #e22f22;
+                cursor: default;
+              }
+              p {
+                position: relative;
+                &::before {
+                  content: '';
+                  width: 100%;
+                  height: 1px;
+                  position: absolute;
+                  bottom: 0;
+                  border-bottom: 1px dotted rgb(85, 85, 85);
+                }
+                a {
+                  font: 400 13px/22px $font;
+                  color: #555;
+                  &:hover {
+                    opacity: 0.7;
+                  }
+                }
+              }
+            }
+          }
+          &-2 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            height: 390px;
+            width: 1140px;
+            .block-product-list {
+              position: relative;
+              border: 1px solid #e5e5e5;
+              padding: 12px 20px 20px 20px;
+              min-width: 217px;
+              .icon-present {
+                width: 30px;
+                height: 30px;
+              }
+              .name {
+                font: 400 13px/22px $font;
+                color: #000;
+                margin-top: 10px;
+                transition: 0.3s;
+              }
+              .worth {
+                font: 700 22px/23px $font;
+                color: #222;
+                margin-top: 15px;
+                transition: 0.3s;
+                margin-bottom: -80px;
+              }
+              .icon-like {
+                position: absolute;
+                top: 20px;
+                right: 22px;
+                width: 24px;
+                height: 24px;
+                opacity: 0;
+                transition: 0.3s;
+              }
+              .icon-chart {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 50px;
+                right: 22px;
+                opacity: 0;
+                transition: 0.3s;
+              }
+              .view-hover {
+                position: absolute;
+                top: 90px;
+                left: 30px;
+                height: auto;
+                opacity: 0;
+                display: block;
+                background: #e5e5e5;
+                border-radius: 5px;
+                padding: 9px 12px;
+                font: 400 12px/22px $font;
+                color: #555;
+                transition: 0.3s;
+              }
+              .number-hover {
+                opacity: 0;
+                transition: 0.3s;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .green {
+                  width: 3px;
+                  height: 12px;
+                  background: #22e26f;
+                  display: block;
+                  margin-right: 2px;
+                }
+                .grey {
+                  width: 3px;
+                  height: 12px;
+                  background: #e5e5e5;
+                  display: block;
+                  margin-right: 7px;
+                }
+                .text {
+                  display: block;
+                  font: 400 13px $font;
+                  color: #555;
+                }
+              }
+              .worth-hover {
+                font: 700 22px/23px $font;
+                color: #222;
+                margin-top: 15px;
+                transition: 0.3s;
+                opacity: 0;
+              }
+              .row-form {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                opacity: 0;
+                transition: 0.3s;
+                .input-group {
+                  .button-minus {
+                    background: #fff;
+                    border: 1px solid #e5e5e5;
+                    border-radius: 5px 0 0 5px;
+                    font: 400 13px/22px $font;
+                    color: #000;
+                    padding: 4px 10px;
+                    margin-right: -4.5px;
+                    cursor: pointer;
+                  }
+                  .button-plus {
+                    background: #fff;
+                    border: 1px solid #e5e5e5;
+                    border-radius: 0 5px 5px 0;
+                    font: 400 13px/22px $font;
+                    color: #000;
+                    padding: 4px 10px;
+                    margin-left: -5px;
+                    cursor: pointer;
+                  }
+                  .num-count {
+                    background: #f9f9fa;
+                    border: none;
+                    border-top: 1px solid #e5e5e5;
+                    border-bottom: 1px solid #e5e5e5;
+                    font: 400 13px/22px $font;
+                    color: #000;
+                    padding: 4px 10px;
+                    margin: 0;
+                    text-align: center;
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                      appearance: none;
+                    }
+                  }
+                }
+                .add-cart {
+                  button {
+                    border: none;
+                    padding: 3px 14px;
+                    background: #e22f22;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    .icon-add-cart {
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+                }
+              }
+              &:hover {
+                .worth {
+                  opacity: 0;
+                  margin: 0;
+                }
+                .view-hover,
+                .icon-like,
+                .icon-chart,
+                .number-hover,
+                .worth-hover,
+                .row-form {
+                  opacity: 1;
+                }
+                .view-hover,
+                .icon-like,
+                .icon-chart,
+                .add-cart {
+                  &:hover {
+                    opacity: 0.7;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      // product-list
+      // video
+      .video {
+        overflow-y: hidden;
+        .row-video {
+          &-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            .block-video {
+              h1 {
+                font: 700 20px/22px $font;
+                color: #222;
+                text-transform: uppercase;
+              }
+              p {
+                position: relative;
+                &::before {
+                  content: '';
+                  width: 100%;
+                  height: 1px;
+                  position: absolute;
+                  bottom: 0;
+                  border-bottom: 1px dotted #555;
+                }
+                a {
+                  font: 400 13px/22px $font;
+                  color: #555;
+                  &:hover {
+                    opacity: 0.7;
+                  }
+                }
+              }
+            }
+          }
+          &-2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 1140px;
+            .block-video-img {
+              width: 220px;
+              a {
+                &:hover {
+                  opacity: 0.7;
+                }
+                p {
+                  font: 400 13px/22px $font;
+                  color: #222;
+                  margin-top: 10px;
+                  width: 220px;
+                }
+              }
+            }
+          }
+        }
+      }
+      // video
+      // egg
+      .egg {
+        margin: 60px 0;
+        h1 {
+          font: 700 20px/30px $font;
+          color: #222;
+          display: inline-block;
+          margin-bottom: 20px;
+          a {
+            color: #e22f22;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+        p {
+          font: 400 13px/22px $font;
+          color: #222;
+        }
+        span {
+          position: relative;
+          display: inline-block;
+          margin-top: 20px;
+          &::before {
+            content: '';
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            border-bottom: 1px dotted #e22f22;
+          }
+          a {
+            font: 400 13px/22px $font;
+            color: #e22f22;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+        .content_block {
+          display: none;
+        }
+      }
+      // egg
+      @include media-tablet-horizontal {
+        .calculator,
+        .calculator-mobile {
+          width: 98%;
+          margin: 40px auto 60px;
+          .row-parameters {
+            justify-content: space-between;
+            flex-wrap: wrap;
+          }
+          .row-view {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .thorns {
+              margin: 0;
+              margin-top: 40px;
+            }
+          }
+          .tires,
+          .wheels {
+            &::before {
+              display: none;
+            }
+          }
+        }
+        .stocks {
+          width: 98%;
+          margin: 0 auto;
+          .row-stocks-2 {
+            justify-content: center;
+            flex-wrap: wrap;
+            .block-stocks-img-1 {
+              margin-bottom: 15px;
+            }
+            .block-stocks-two {
+              margin: 15px 0;
+            }
+          }
+        }
+        .catalog {
+          width: 98%;
+          margin: 40px auto;
+          .block-catalog {
+            &-1,
+            &-2,
+            &-3,
+            &-4,
+            &-5 {
+              margin: 10px;
+            }
+          }
+        }
+        .egg {
+          width: 98%;
+          margin: 40px auto;
+        }
+        .product-list {
+          width: 98%;
+          margin: 0 auto;
+          margin-bottom: 40px;
+          h1 {
+            font: 700 16px/22px $font;
+          }
+          .row-product-list {
+            &-1 {
+              .block-product-list {
+                span {
+                  font: 400 14px/22px $font;
+                  margin-right: 10px;
+                }
+              }
+            }
+            &-2 {
+              justify-content: flex-start;
+              .block-product-list {
+                margin: 0 5px;
+                &:nth-child(1) {
+                  margin-left: 0;
+                }
+                &:nth-child(5) {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+        }
+        .video {
+          width: 98%;
+          margin: 0 auto;
+          h1 {
+            font: 700 16px/22px $font;
+          }
+        }
+      }
+      @include media-tablet {
+        .calculator {
+          display: none;
+          &-mobile {
+            display: block;
+          } 
+        }
+        .stocks {
+          .row-stocks-1 {
+            .block-stocks {
+              p {
+                &:nth-child(1) {
+                  font: 700 16px/22px $font;
+                }
+              }
+            }
+          }
+          .row-stocks-2 {
+            justify-content: center;
+            .block-stocks-img-1 {
+              margin: 15px 0;
+            }
+            .block-stocks-two {
+              margin: 0;
+            }
+          }
+        }
+        .catalog {
+          margin-top: 40px;
+          .row-catalog-1 {
+            margin-bottom: 5px;
+            p {
+              font: 700 16px/22px $font;
+            }
+          }
+          .block-catalog {
+            &-1,
+            &-2,
+            &-3,
+            &-4,
+            &-5 {
+              margin: 5px 0;
+              width: 100%;
+              height: 50px;
+              p {
+                font: 400 16px/24px $font;
+                margin: auto 25px;
+                display: inline-flex;
+                align-items: center;
+                height: 100%;
+                text-transform: none;
+              }
+              &::after {
+                height: 50px;
+                right: 20px;
+              }
+            }
+          }
+        }
+        .map {
+          width: 98%;
+          margin: 0 auto 40px auto;
+          border: none;
+          justify-content: center;
+          flex-wrap: wrap;
+          .row-map {
+            display: flex;
+          }
+          .list {
+            display: none;
+            h1 {
+              display: none;
+            }
+          }
+          .map-widget {
+            width: 100%;
+          }
+        }
+      }
+      @include media-mobile {
+        .stocks {
+          .row-stocks-2 {
+            justify-content: center;
+            .block-stocks-img-1 {
+              width: 270px;
+              height: 200px;
+              margin: 15px 0;
+              .red {
+                font: 700 19px/30px $font;
+                padding: 13px 5px;
+              }
+            }
+            .block-stocks-img-2 {
+              width: 270px;
+              height: 288px;
+              margin: 0;
+            }
+            .block-stocks-two {
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+              margin: 15px 0;
+            }
+          }
+        }
+        .calculator-mobile {
+          .row-calculator-mobile-tires {
+            .tires {
+              .row-view {
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+      @import 'common/style-tires';
+      @import 'common/style-zapis-1';
+      @import 'common/style-zapis-3';
+      @import 'common/style-zapis-4';
+      @import 'common/style-actions';
+      @import 'common/style-actions-card';
+      @import 'common/style-card-tires-1';
+    }
+  }
+}
