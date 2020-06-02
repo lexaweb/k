@@ -8,35 +8,45 @@ block content
         a(href="") Главная 
         a(href="") – Запись на услуги 
         p – Запись на услугу "Легковой шиномонтаж"
-      .head 
-        h1 Запись на услугу "Легковой шиномонтаж"
+      .head-card 
+        h1 Шины Kumho I`Zen KW31 185/65 R14 86R
         p Артикул: 2128683
       .section-product
         .row-product-slider
-          .block-product-slider.sl_ctr
-            .slider_item.sldr
-              img(src="img/block-product-slider.png", alt="")
-              img(src="img/block-product-slider.png", alt="")
-            .block-product-slider-icon
-              .icon-top
-                .icon
+          .block-product-main
+            .block-product-slider.swiper-container
+              .slider_item.swiper-wrapper
+                .swiper-slide
+                  img(src="img/block-product-slider.png", alt="")
+                  .icon-center
+                    +icon('zoom-in_icon')
+                .swiper-slide
+                  img(src="img/block-product-slider.png", alt="")
+                  .icon-center
+                    +icon('zoom-in_icon')
+              .block-product-slider-icon
+                .icon-top
+                  .icon
+                    a(href="")
+                      +icon('present')
+                  .icon
+                    a(href="")
+                      +icon('like')
+                    a(href="")  
+                      +icon('chart')  
+                .icon-bottom
                   a(href="")
-                    +icon('present')
-                .icon
-                  a(href="")
-                    +icon('like')
-                  a(href="")  
-                    +icon('chart')  
-              .icon-bottom
-                a(href="")
-                  +icon('winter')
-              .hover-slider
-                .icon-left.prv_b(role="button")
-                  +icon('arrow_left')
-                .icon-center
-                  +icon('zoom-in_icon')
-                .icon-right.nxt_b(role="button")
-                  +icon('arrow_right')
+                    +icon('winter')
+                .hover-slider
+                  .icon-left.swiper-button-prev(role="button")
+                    +icon('arrow_left')
+                  .icon-right.swiper-button-next(role="button")
+                    +icon('arrow_right')
+            .row-product-slider-mini
+              .block-product-slider-mini
+                img(src="img/block-product-slider.png", alt="")
+              .block-product-slider-mini
+                img(src="img/block-product-slider.png", alt="")
           .block-product-form
             form(action="action.php", method="post")
               .row-form-1
@@ -73,11 +83,6 @@ block content
                     +icon('check-red')
                     span Бесплатный шиномонтаж 
                     p зимних шин Kumho
-        .row-product-slider-mini
-          .block-product-slider-mini
-            img(src="img/block-product-slider.png", alt="")
-          .block-product-slider-mini
-            img(src="img/block-product-slider.png", alt="")
       .section-inf-product.tabs 
         .row-inf-product.tabs__caption
           span.active Характеристики
@@ -122,6 +127,11 @@ block content
           p Преимущества Viatti Strada Asimmetrico: Для повышения сцепных свойств шины при движении в повороте рисунок протектора выполнен асимметричным. Для высокой курсовой устойчивости и интенсивного отвода воды имеется три широких продольных канавки, самая широкая из которых расположена с внешней стороны шины. С обеих сторон этой канавки для повышения поперечной жесткости имеются участки из сплошного массива резины. Центральная и внутренняя зоны рисунка предназначены для передачи тяговых усилий. Для снижения акустического эффекта в окружных канавках по окружности расположены небольшие выступы. Два ребра с внутренней стороны шины имеют узкие поперечные канавки, в которых для повышения эластичности предусмотрены ножевые прорези. Использование разных резиносмесей в плечевой и боковой частях протектора улучшает сцепные свойства и скоростное прохождение поворотов.
         .row-inf-product.tabs__content
           p Преимущества Viatti Strada Asimmetrico: Для повышения сцепных свойств шины при движении в повороте рисунок протектора выполнен асимметричным. Для высокой курсовой устойчивости и интенсивного отвода воды имеется три широких продольных канавки, самая широкая из которых расположена с внешней стороны шины. С обеих сторон этой канавки для повышения поперечной жесткости имеются участки из сплошного массива резины. Центральная и внутренняя зоны рисунка предназначены для передачи тяговых усилий. Для снижения акустического эффекта в окружных канавках по окружности расположены небольшие выступы. Два ребра с внутренней стороны шины имеют узкие поперечные канавки, в которых для повышения эластичности предусмотрены ножевые прорези. Использование разных резиносмесей в плечевой и боковой частях протектора улучшает сцепные свойства и скоростное прохождение поворотов.
+      .section-inf-product-mobile 
+        .block-inf-product-mobile-specifications
+          p Характеристики
+          .icon
+            +icon('arrow-bottom')
       .actions-card
         .row-actions-card-3
           h2 Товары по акции

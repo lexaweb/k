@@ -1897,13 +1897,13 @@ body {
           }
         }
       }
-      @import 'common/style-tires';
-      @import 'common/style-zapis-1';
-      @import 'common/style-zapis-3';
-      @import 'common/style-zapis-4';
-      @import 'common/style-actions';
-      @import 'common/style-actions-card';
-      @import 'common/style-card-tires-1';
+      @import 'style-pages/style-tires';
+      @import 'style-pages/style-zapis-1';
+      @import 'style-pages/style-zapis-3';
+      @import 'style-pages/style-zapis-4';
+      @import 'style-pages/style-actions';
+      @import 'style-pages/style-actions-card';
+      @import 'style-pages/style-card-tires-1';
     }
   }
 }
